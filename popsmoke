@@ -1,0 +1,58 @@
+#! /home/snowden/anaconda3/envs/pop-smoke/bin/python 
+
+from pop_mode import Classics, NetWork, Portail, Sql, Module, Portail
+import colorama
+colorama.init()
+CF = colorama.Fore
+
+available_mode = {"mode":[Classics().get_localisation, Classics().exit, NetWork().analyse, NetWork().VPN, Sql().attack, Module().execute, Portail().activate]}
+
+class Interface(object):
+
+    def __init__(self):
+        self.available_mode = available_mode["mode"]
+        
+        self.title = """\
+            
+         ____               ____                  _        
+        |  _ \ ___  _ __   / ___| _ __ ___   ___ | | _____ 
+        | |_) / _ \| '_ \  \___ \| '_ ` _ \ / _ \| |/ / _ |
+        |  __/ (_) | |_) |  ___) | | | | | | (_) |   <  __/
+        |_|   \___/| .__/  |____/|_| |_| |_|\___/|_|\_\___|
+                   |_|             
+                        
+                     """
+    @property
+    def mode(self):
+        return self._mode
+
+    @mode.getter
+    def mode(self):
+        print(CF.LIGHTRED_EX, self.title)
+        print(CF.RESET)
+        for index,mode in enumerate(self.available_mode):
+            print(index," - ", mode.__name__)
+
+        self._mode = ""
+        while self._mode != "quit":
+            self._mode = input("\nenter the mode: ")
+            return self._mode
+    
+    def choose(self):
+        choices = self.available_mode
+        choice = self.mode
+        
+        if str(choice) == "quit":
+            print("bye...")
+
+        if choices[int(choice)]:
+                choices[int(choice)]()
+        
+        else:
+            print(CF.RED, "not found")
+        
+       
+
+while True:
+    Interface().choose()
+
