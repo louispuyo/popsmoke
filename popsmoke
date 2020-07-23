@@ -5,7 +5,8 @@ import colorama
 colorama.init()
 CF = colorama.Fore
 
-available_mode = {"mode":[Classics().get_localisation, Classics().exit, NetWork().analyse, NetWork().VPN, Sql().attack, Module().execute, Portail().activate]}
+available_mode = {"mode":[Classics().get_localisation, Classics().exit, NetWork().analyse, NetWork().VPN, NetWork().get_network_ether, Sql().attack, 
+Module().execute, Portail().activate]}
 
 class Interface(object):
 
@@ -46,7 +47,9 @@ class Interface(object):
             print("bye...")
 
         if choices[int(choice)]:
+                print('-----------------------(BEGIN)-----------------')
                 choices[int(choice)]()
+                print(CF.RED,'------------------------(END)------------------')
         
         else:
             print(CF.RED, "not found")

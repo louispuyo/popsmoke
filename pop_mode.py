@@ -25,6 +25,10 @@ class NetWork(object):
     def analyse(self):
         print(CF.GREEN)
         os.system('lshw -C network')
+    
+    def get_network_ether(self):
+        print(CF.GREEN)
+        os.system('ifconfig -a | grep eth')
 
     def VPN(self):
         option = input("enter an option -l (--load) to active and -f (--flush) to deactive \n -> ")
