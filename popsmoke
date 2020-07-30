@@ -1,12 +1,18 @@
-#! /home/snowden/anaconda3/envs/pop-smoke/bin/python 
+#! /home/snowden/opt/anaconda3/bin/python 
 
 from pop_mode import Classics, NetWork, Portail, Sql, Module, Portail
+from security.spoofing import Spoof
+from Class.WooPrime import WooPrimeClass
+from security.ACK import Mechant
+from commands import autocomplete
 import colorama
+import readline
 colorama.init()
 CF = colorama.Fore
 
-available_mode = {"mode":[Classics().get_localisation, Classics().exit, NetWork().analyse, NetWork().VPN, NetWork().get_network_ether, Sql().attack, 
-Module().execute, Portail().activate]}
+available_mode = {"mode":[Classics().get_localisation, Classics().exit, NetWork().analyse, NetWork().VPN, NetWork().get_network_ether, Sql().attack, Spoof, 
+Module().execute, Portail().activate, Mechant().trace_route, WooPrimeClass().WooPrimePortail]}
+
 
 class Interface(object):
 
@@ -57,5 +63,9 @@ class Interface(object):
        
 
 while True:
+    completer = autocomplete.MyCompleter([mode.__name__ for mode in Interface().available_mode])
+    readline.set_completer(completer.complete)
+    readline.parse_and_bind('tab: complete')
+
     Interface().choose()
 
