@@ -12,8 +12,9 @@ class PopModePrime(object):
 
     def scan_all_wireless(self):
         print(CF.RESET)
-        time.sleep(1)
-        os.system('airport -s')
+        # time.sleep(1)
+        os.system('nmcli -f ALL dev wifi')
+     
         
 
     def get_local_ip(self) -> typing.Optional[str]:
@@ -32,6 +33,8 @@ class PopModePrime(object):
             print("[:] END")
             s.close()
         
+
+PopModePrime().scan_all_wireless()
     
         
         
