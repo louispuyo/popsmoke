@@ -51,9 +51,14 @@ class WooPrimeClass(object):
         self.access = self.get_access()
         loop = 1
         poprime = pop_mode_prime.PopModePrime()
-        function_prime_list = {"get_all_wireless    ":poprime.scan_all_wireless, "get_local_ip":poprime.get_local_ip}
+        function_prime_list = {"get_all_wireless":poprime.scan_all_wireless, "get_local_ip":poprime.get_local_ip, "run_a_container":poprime.run_a_container, 
+        "kill_all_container":poprime.Kill_all_container, "attach_container_to_the_last":poprime.attach_container_to_the_last, "create_a_network":poprime.Create_a_network, 
+        "Docker_swarm":poprime.Docker_swarm, "run_mykali_admin":poprime.run_mykali_admin,
+        "tcpdump":poprime.tcpdump, "tcpdumpall":poprime.tcpdumpall, "tcpdumpraw":poprime.tcpdumpraw, "tcpdumpshark":poprime.tcpdumpshark, "commands":poprime.commands}
             
-        completer = autocomplete.MyCompleter(['pop-mode','get_all_wireless','super_hazer', 'get_local_ip'])
+        completer = autocomplete.MyCompleter(['pop-mode','get_all_wireless','super_hazer', 'get_local_ip', 'run_a_container', 
+        'kill_all_container', 'attach_container_to_the_last','create_a_network', 'Docker_swarm', 'tcpdump', 
+        'tcpdumpall', 'tcpdumpraw', 'commands', 'run_mykali_admin', 'exit', 'tcpdumpshark'])
         readline.set_completer(completer.complete)
         readline.parse_and_bind('tab: complete')
 
@@ -65,7 +70,7 @@ class WooPrimeClass(object):
                     print(f"{index} - {j}")
             for i in range(loop+1):
                 loop+=1
-                Input = input(f"\n[{i}][{i+7}]Prime> ")
+                Input = input(f"\n[{i}{i+7}]Prime> ➜  ")
                 if Input == 'exit':
                     print(CF.LIGHTRED_EX, "EXITING POP SMOKE PRIME...\n\n")
                     self.access = False

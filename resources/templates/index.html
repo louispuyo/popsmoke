@@ -1,0 +1,30 @@
+{% include 'header.html' %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Api - PopSmoke</title>
+</head>
+<body>
+    <h2>
+        TODO
+    </h2>
+    <form id="myForm" name=note action="/notes-post" method="post">
+    <div class="form-group">
+        <label for="exampleFormControlTextarea1">description</label>
+        <textarea name="text" id="text" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        <div class="custom-control custom-checkbox">
+            <input name="completed" type="checkbox" class="custom-control-input" id="completed">
+            <label class="custom-control-label" for="completed">Check if already done</label>
+            <br>
+          </div>
+          <button style="width: 100%; background-color: aquamarine;" type="submit">submit</button>
+
+      </div>
+    
+    
+    </form>
+  
+</body>
+</html>

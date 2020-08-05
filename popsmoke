@@ -1,6 +1,7 @@
 #! /home/snowden/opt/anaconda3/bin/python 
 
 from pop_mode import Classics, NetWork, Portail, Sql, Module, Portail
+from pop_mode2 import p_active
 from security.spoofing import Spoof
 from Class.WooPrime import WooPrimeClass
 from security.ACK import Mechant
@@ -11,7 +12,7 @@ colorama.init()
 CF = colorama.Fore
 
 available_mode = {"mode":[Classics().get_localisation, Classics().exit, NetWork().analyse, NetWork().VPN, NetWork().get_network_ether, Sql().attack, Spoof, 
-Module().execute, Portail().activate, Mechant().trace_route, WooPrimeClass().WooPrimePortail]}
+Module().execute, Portail().activate, Mechant().trace_route, WooPrimeClass().WooPrimePortail, p_active]}
 
 
 class Interface(object):

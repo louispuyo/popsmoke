@@ -1,9 +1,5 @@
-FROM  python:3.8.3-alpine
+FROM kalilinux/kali-rolling
 
-COPY . /app
-WORKDIR /app
-
-RUN pip install -r requirements.txt
-
-CMD ["gunicorn","-w 4", "main:app"]
-
+RUN apt-get -y update && \
+apt-get -y upgrade && \
+apt-get install -y aircrack-ng pciutils
