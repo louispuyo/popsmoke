@@ -151,6 +151,8 @@ class PopModePrime(object):
             print("[:] END")
             s.close()
         
+
+PopModePrime().scan_all_wireless()
     
         
         
